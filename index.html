@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Drifting Clouds (v.4)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>  
+  <div class="sky">
+    <!-- the sky has to hold everything -->
+    <div id="starrynight"> </div>
+      <!-- Each cloud its own svg AND its own div because otherwise the scaling/placement and the animation won't work - actually i figured out a way around that i think, but I'll leave divs for now -->
+    <svg id="universal filters" width="1200" height="900" >
+      <defs>
+        
+        <linearGradient id="orangeSunrise" x1="0" x2="0" y1="100%" y2="0">
+          <stop offset="5%"  stop-color="rgba(247, 138, 35, 1)" />
+          <stop offset="30%" stop-color="rgba(39, 94, 125, 1)" />
+          <stop offset="50%" stop-color="rgba(39, 94, 125, 1)" />
+          <stop offset="100%" stop-color="rgba(128, 135, 156, 1)" />
+        </linearGradient>
+        <linearGradient id="redSunset" x1="0" x2="0" y1="100%" y2="0">
+          <stop offset="5%"  stop-color="rgba(249, 133, 94, 1)" />
+          <stop offset="20%" stop-color="rgba(229, 68, 14, 1)" />
+          <stop offset="40%" stop-color="rgba(102, 13, 3, 1)" />
+          <stop offset="100%" stop-color="rgba(65, 36, 44, 1)" />
+        </linearGradient>
+      </defs> 
+    </svg>
+    <div class="clouddiv" id="divcloud01">
+      <svg class="cloud" id="svgcloud01" width="1200" height="900" viewbox="0 0 6000 4500" > 
+        <defs> 
+          <filter id="cloud-back1" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+            <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+            <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+          </filter>   
+          <filter id="cloud-mid1" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+            <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+            <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+          </filter>   
+          <filter id="cloud-front1" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+            <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+            <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+          </filter>
+        </defs> 
+        <g id="regCloud">
+          <g filter="url(#cloud-back1)" >
+            <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+          </g>
+          <g filter="url(#cloud-mid1)" >
+             <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+          </g>
+          <g filter="url(#cloud-front1)" >
+            <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="clouddiv" id="divcloud02">
+      <svg class="cloud" id="svgcloud02" width="1200" height="900" viewbox="0 0 6000 4500" > 
+        <defs> 
+          <filter id="cloud-back2" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+            <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+            <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+          </filter>   
+          <filter id="cloud-mid2" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+            <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+            <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+          </filter>   
+          <filter id="cloud-front2" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+            <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+            <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+          </filter>
+        </defs>
+        <g>
+      <g filter="url(#cloud-back2)" >
+        <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+      </g>
+      <g filter="url(#cloud-mid2)" >
+         <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+      </g>
+      <g filter="url(#cloud-front2)" >
+        <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />
+      </g>
+    </g>
+      </svg>
+    </div>
+    <div class="clouddiv" id="divcloud03"><svg class="cloud" id="svgcloud03" width="1200" height="900" viewbox="0 0 4000 3000" > 
+      <defs> 
+        <filter id="cloud-back3" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid3" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front3" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back3)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid3)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front3)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud04"><svg class="cloud" id="svgcloud04" width="1200" height="900" viewbox="0 0 4000 3000"> 
+      <defs> 
+        <filter id="cloud-back4" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid4" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front4" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back4)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid4)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front4)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud05"><svg class="cloud" id="svgcloud05" width="1200" height="900" viewbox="0 0 3000 2250" > 
+      <defs> 
+        <filter id="cloud-back5" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid5" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front5" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back5)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid5)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front5)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud06"><svg class="cloud" id="svgcloud06" height="900" viewbox="0 0 2400 1800" > 
+      <defs> 
+        <filter id="cloud-back6" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid6" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front6" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back6)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid6)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front6)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud07"><svg class="cloud" id="svgcloud07" width="1200" height="900" viewbox="0 0 1800 1350" > 
+      <defs> 
+        <filter id="cloud-back7" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid7" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front7" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back7)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid7)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front7)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud08"><svg class="cloud" id="svgcloud08" height="900" viewbox="0 0 2400 1800" > 
+      <defs> 
+        <filter id="cloud-back8" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid8" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front8" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back8)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid8)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front8)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud09"><svg class="cloud" id="svgcloud09" width="1200" height="900" viewbox="0 0 1200 900" > 
+      <defs> 
+        <filter id="cloud-back9" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid9" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front9" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back9)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid9)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front9)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud10"><svg class="cloud" id="svgcloud10" width="1200" height="900" viewbox="0 0 1050 788"> 
+      <defs> 
+        <filter id="cloud-back10" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid10" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front10" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back10)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid10)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front10)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud11"><svg class="cloud" id="svgcloud11" width="1200" height="900" viewbox="0 0 900 675" > 
+      <defs> 
+        <filter id="cloud-back11" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid11" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front11" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back11)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid11)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front11)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+   <!-- big screen -->
+    <div class="clouddiv" id="divcloud12"><svg class="cloud" id="svgcloud12" width="1200" height="900" viewbox="0 0 6000 4500" > 
+      <defs> 
+        <filter id="cloud-back12" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid12" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front12" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back12)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid12)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front12)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud13"><svg class="cloud" id="svgcloud13" width="1200" height="900" viewbox="0 0 4000 3000" > 
+      <defs> 
+        <filter id="cloud-back13" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid13" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front13" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back13)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid13)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front13)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud14"><svg class="cloud" id="svgcloud14" width="1200" height="900" viewbox="0 0 3000 2250" > 
+      <defs> 
+        <filter id="cloud-back14" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid14" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front14" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back14)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid14)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front14)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud15"><svg class="cloud" id="svgcloud15" width="1200" height="900" viewbox="0 0 2400 1800" > 
+      <defs> 
+        <filter id="cloud-back15" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid15" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front15" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back15)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid15)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front15)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud16"><svg class="cloud" id="svgcloud16" width="1200" height="900" viewbox="0 0 1800 1350" > 
+      <defs> 
+        <filter id="cloud-back16" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid16" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front16" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back16)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid16)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front16)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud17"><svg class="cloud" id="svgcloud17" width="1200" height="900" viewbox="0 0 1200 900" > 
+      <defs> 
+        <filter id="cloud-back17" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid17" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front17" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back17)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid17)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front17)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <div class="clouddiv" id="divcloud18"><svg class="cloud" id="svgcloud18" width="1200" height="900" viewbox="0 0 1050 788" > 
+      <defs> 
+        <filter id="cloud-back18" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-mid18" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+        </filter>   
+        <filter id="cloud-front18" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+          <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+          <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+        </filter>
+      </defs>
+      <g>
+    <g filter="url(#cloud-back18)" >
+      <ellipse class="cback" cx="400" cy="270"  fill="#FFFFFF" />
+    </g>
+    <g filter="url(#cloud-mid18)" >
+       <ellipse class="cmid" cx="400" cy="315"  fill="rgba(0, 205, 209, 0.3)" />
+    </g>
+    <g filter="url(#cloud-front18)" >
+      <ellipse class="cfront" cx="400" cy="340"  fill="rgba(6, 18, 40, 0.2)" />>
+    </g>
+  </g>
+    </svg></div>
+    <!--
+    <svg id="filters" width="800" height="600" > 
+      <defs> 
+    <filter id="cloud-back" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="shadow" />
+      <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+      <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+    </filter>   
+    <filter id="cloud-mid" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="28" result="shadow" />
+      <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="distort" />
+      <feDisplacementMap  in="shadow" in2="distort" scale="170" result="cloudy" />
+    </filter>   
+    <filter id="cloud-front" filterUnits="userSpaceOnUse" x="0" y="0" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="shadow" />
+      <feTurbulence in="sourceGraphic" type="fractalNoise" baseFrequency="0.012" numOctaves="2" result="distort" />
+      <feDisplacementMap  in="shadow" in2="distort" scale="100" result="cloudy" />
+    </filter>
+  </defs> 
+    </svg>
+    -->
+  <!-- close the sky -->
+  </div> 
+  <!-- menu time, time menu, whatever -->
+  <div class="menuWrapper">  
+      <div id="menuUpper">
+      <!-- Menu Info tab -->
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="rgba(240, 248, 255, 0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="17.291" x2="12" y2="10.708"/>
+        <line x1="12" y1="6.708" x2="12.01" y2="6.708"/>
+      </svg>
+      </div>
+      <div class="form" id="menuLower">
+          <!-- Time Choice radio buttons -->
+          <form>
+            <fieldset class="form__options">
+              <legend class="form__question">Choose time display</legend>
+              <p class="form__answer"> 
+                <input type="radio" name="match" id="Current Time" value="time" checked onclick="buttonClick()"> 
+                <label for="Current Time">
+                  <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> 
+                    <title>Current Time</title>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </label> 
+              </p>
+              <p class="form__answer"> 
+                <input type="radio" name="match" id="Sunrise" value="sunrise" onclick="buttonClick()"> 
+                <label for="Sunrise">
+                  <svg x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Sunrise</title>
+                    <path d="M12,7c-2.761,0-5,2.239-5,5 h10C17,9.239,14.762,7,12,7z"/>
+                    <line x1="7.791" y1="1.837" x2="8.556" y2="3.685"/>
+                    <line x1="1.809" y1="7.779" x2="3.638" y2="8.536"/>
+                    <line x1="20.315" y1="8.556" x2="22.163" y2="7.791"/>
+                    <line x1="15.464" y1="3.638" x2="16.222" y2="1.809"/>
+                    <line x1="1.5" y1="12" x2="22.5" y2="12"/>
+                  </svg>
+                </label> 
+              </p>
+              <p class="form__answer"> 
+                <input type="radio" name="match" id="Day" value="day" onclick="buttonClick()"> 
+                <label for="Day">
+                  <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Day</title>
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>
+                  </svg>
+                </label> 
+              </p>
+              <p class="form__answer"> 
+                <input type="radio" name="match" id="Sunset" value="sunset" onclick="buttonClick()"> 
+                <label for="Sunset">
+                  <svg x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Sunset</title>
+                    <path d="M17,12H7 c0,2.761,2.239,5,5,5C14.762,17,17,14.761,17,12z"/>
+                    <line x1="8.556" y1="20.315" x2="7.791" y2="22.163"/>
+                    <line x1="3.638" y1="15.464" x2="1.809" y2="16.222"/>
+                    <line x1="22.163" y1="16.209" x2="20.314" y2="15.444"/>
+                    <line x1="16.223" y1="22.191" x2="15.464" y2="20.362"/>
+                    <line x1="22.5" y1="12" x2="1.5" y2="12"/>
+                  </svg>
+                </label> 
+              </p>
+              <p class="form__answer"> 
+                <input type="radio" name="match" id="Night" value="night" onclick="buttonClick()"> 
+                <label for="Night">
+                  <svg x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <title>Night</title>
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                  </svg>
+                </label> 
+              </p>
+            </fieldset>
+          </form>
+          <!-- Music player -->
+         <audio loop id="musicPlayer" preload="metadata">
+            <!-- <source id="songSunrise" src="http://fatcat-designs.com/Drifting-Clouds/Just_Some_Happy_Little_Clouds.mp3">
+            <source id="songDay" src="http://fatcat-designs.com/Drifting-Clouds/Noontime_Vapors_Up.mp3">
+            <source id="songSunset" src="http://fatcat-designs.com/Drifting-Clouds/Clouds_on_a_Summer_Evening.mp3">
+            <source id="songNight" src="http://fatcat-designs.com/Drifting-Clouds/Stars_Through_The_Clouds.mp3"> -->
+          </audio>
+          <!-- custom stereo face -->
+          <div class="stereo">  
+            <svg class="speaker" id="leftSpeaker" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 35 35" >
+              <g fill="none" stroke="rgba(255, 255, 255, 0.8)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" >
+                <path d="M18.5,5.5h4.006"/>
+                <path d="M18.5,7.5h7.306"/>
+                <path d="M18.5,9.5h9.243"/>
+                <path d="M29.031,11.5H18.5H29.031"/>
+                <path d="M29.87,13.5H18.5H29.87"/>
+                <path d="M30.347,15.5H18.5H30.347"/>
+                <path d="M30.5,17.5h-12H30.5"/>
+                <path d="M30.347,19.5H18.5H30.347"/>
+                <path d="M29.87,21.5H18.5H29.87"/>
+                <path d="M29.031,23.5H18.5H29.031"/>
+                <path d="M27.743,25.5H18.5H27.743"/>
+                <path d="M25.806,27.5H18.5H25.806"/>
+                <path d="M22.506,29.5H18.5H22.506"/>
+                <path d="M12.495,29.5H16.1H12.495"/>
+                <path d="M9.194,27.5H16.1H9.194"/>
+                <path d="M7.257,25.5H16.1H7.257"/>
+                <path d="M5.968,23.5H16.1H5.968"/>
+                <path d="M5.13,21.5H16.1H5.13"/>
+                <path d="M4.653,19.5H16.1H4.653"/>
+                <path d="M4.5,17.5h11.6H4.5"/>
+                <path d="M16.1,15.5H4.653"/>
+                <path d="M16.1,13.5H5.13"/>
+                <path d="M16.1,11.5H5.968"/>
+                <path d="M16.1,9.5H7.257"/>
+                <path d="M16.1,7.5H9.194"/>
+                <path d="M16.1,5.5h-3.605"/>
+              </g>
+          </svg>
+            <button class="stereoButton" id="play">
+              <svg x="0px" y="0px" width="16" height="16" viewBox="-1 0 22 22" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+	              <title>Play</title>
+	              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>  
+            </button>
+            <button class="stereoButton" id="pause">
+              <svg x="0px" y="0px" width="16" height="16" viewBox="1 0 22 22" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <title>Pause</title>
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+            </button>
+            <svg class="speaker" id="rightSpeaker" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 35 35" >
+              <g fill="none" stroke="rgba(255, 255, 255, 0.8)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" >
+                <path d="M18.5,5.5h4.006"/>
+                <path d="M18.5,7.5h7.306"/>
+                <path d="M18.5,9.5h9.243"/>
+                <path d="M29.031,11.5H18.5H29.031"/>
+                <path d="M29.87,13.5H18.5H29.87"/>
+                <path d="M30.347,15.5H18.5H30.347"/>
+                <path d="M30.5,17.5h-12H30.5"/>
+                <path d="M30.347,19.5H18.5H30.347"/>
+                <path d="M29.87,21.5H18.5H29.87"/>
+                <path d="M29.031,23.5H18.5H29.031"/>
+                <path d="M27.743,25.5H18.5H27.743"/>
+                <path d="M25.806,27.5H18.5H25.806"/>
+                <path d="M22.506,29.5H18.5H22.506"/>
+                <path d="M12.495,29.5H16.1H12.495"/>
+                <path d="M9.194,27.5H16.1H9.194"/>
+                <path d="M7.257,25.5H16.1H7.257"/>
+                <path d="M5.968,23.5H16.1H5.968"/>
+                <path d="M5.13,21.5H16.1H5.13"/>
+                <path d="M4.653,19.5H16.1H4.653"/>
+                <path d="M4.5,17.5h11.6H4.5"/>
+                <path d="M16.1,15.5H4.653"/>
+                <path d="M16.1,13.5H5.13"/>
+                <path d="M16.1,11.5H5.968"/>
+                <path d="M16.1,9.5H7.257"/>
+                <path d="M16.1,7.5H9.194"/>
+                <path d="M16.1,5.5h-3.605"/>
+              </g>
+          </svg>
+          </div>
+          <!-- Cloud refresh button -->
+          <button class="bigButton" id="update" onclick="buttonClick()">New clouds?</button>
+          <!-- Credits -->
+          <button class="bigButton" id="creditsButton" onclick="creditsClick('credits')">Credits</button>
+        </div>
+  </div>
+  <div id="credits">
+    All clouds are procedurally generated. <br>
+    Created by karmicRetribution. <br>
+    Music by manicInsomniac. <br>
+    See the code on  <a href="https://codepen.io/keskaowl/pen/JjGELrZ">CodePen</a>.
+  </div>
+  <!-- Actual content, how dare -->
+  <div class="contentContainer">
+  </div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
